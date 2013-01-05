@@ -1,8 +1,9 @@
 ﻿namespace Multitenant.Core.Enums
 {
-    public enum EnvironmentFlag
+    public enum EnvironmentType
     {
         Development,
+        QA,
         Staging,
         Production
     }

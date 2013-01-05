@@ -1,9 +1,9 @@
-﻿using Multitenant.Core.ValueObjects;
-
-namespace Multitenant.Core.Interfaces.Repositorys
+﻿namespace Multitenant.Core.Interfaces.Repositorys
 {
+    using Multitenant.Core.ValueObjects;
+
     public interface ITenantRepository
     {
-        Tenant FindByHostHeader(string hostHeader);
+        Tenant GetByHostHeader(string hostHeader);
     }
 }

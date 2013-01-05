@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Multitenant.Core.Exceptions
+﻿namespace Multitenant.Core.Exceptions
 {
+    using System;
+
     public class TenantNotFoundException : Exception
     {
         public TenantNotFoundException() : this("Tenant Not Found")
