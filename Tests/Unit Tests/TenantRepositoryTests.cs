@@ -9,13 +9,11 @@
     public class TenantRepositoryTests
     {
         [Test]
-        public void Test_That_I_Can_Get_A_Tenant()
+        public void Test_That_I_Can_Get_A_Tenant_By_The_Host_Name()
         {
             // Arrange
             const string HostHeader = "acme.dev.local.com";
-            var environment = EnvironmentBuilder.Create(HostHeader);
-            var expectedTenant = TenantBuilder.Create("ACME 1").WithHost(environment);
-            var repo = TestHelper.MockTenantRepo(HostHeader, expectedTenant);
+            var repo = TestHelper.MockTenantRepo(HostHeader);
             
             // Act
             var actualTenant = repo.GetByHostHeader(HostHeader);

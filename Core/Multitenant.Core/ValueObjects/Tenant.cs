@@ -2,7 +2,9 @@
 {
     using System.Collections.Generic;
 
-    public class Tenant
+    using Multitenant.Core.Interfaces.ValueObjects;
+
+    public class Tenant : ITenant
     {
         public Tenant()
         {

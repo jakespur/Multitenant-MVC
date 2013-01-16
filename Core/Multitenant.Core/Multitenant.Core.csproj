@@ -46,8 +46,11 @@
     </Compile>
     <Compile Include="Enums\EnvironmentFlag.cs" />
     <Compile Include="Exceptions\TenantNotFoundException.cs" />
+    <Compile Include="Helpers\GuardAgainst.cs" />
     <Compile Include="Interfaces\Repositorys\ITenantRepository.cs" />
+    <Compile Include="Interfaces\Resolvers\ICurrentTenantResolver.cs" />
     <Compile Include="ValueObjects\Environment.cs" />
+    <Compile Include="Interfaces\ValueObjects\ITenant.cs" />
     <Compile Include="ValueObjects\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

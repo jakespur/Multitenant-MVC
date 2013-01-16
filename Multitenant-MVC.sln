@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F2B0D21C-8BD0-48E3-8AA5-9FD8107F30BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{5D305018-8902-4931-A1B2-105AC5BC2EB1}"
@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMultiTenant.Demo", "Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenant.UnitTests", "Tests\Unit Tests\Multitenant.UnitTests.csproj", "{E620753D-3E3C-4B63-ADB2-3600626CF045}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenant.MvcHelpers", "Infrastructure\Multitenant.MvcHelpers\Multitenant.MvcHelpers.csproj", "{425FB648-38D0-4057-A9DE-E04F535348E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{E620753D-3E3C-4B63-ADB2-3600626CF045}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E620753D-3E3C-4B63-ADB2-3600626CF045}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E620753D-3E3C-4B63-ADB2-3600626CF045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{425FB648-38D0-4057-A9DE-E04F535348E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425FB648-38D0-4057-A9DE-E04F535348E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425FB648-38D0-4057-A9DE-E04F535348E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425FB648-38D0-4057-A9DE-E04F535348E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4902AFEF-5BBA-4915-B723-33B2767CA7EE} = {F2B0D21C-8BD0-48E3-8AA5-9FD8107F30BE}
 		{60CABB6A-E86F-4EBC-9140-21059B7C2875} = {5D305018-8902-4931-A1B2-105AC5BC2EB1}
+		{425FB648-38D0-4057-A9DE-E04F535348E7} = {5D305018-8902-4931-A1B2-105AC5BC2EB1}
 		{86472AC7-7EFF-4E64-9F85-8EBA9345BB8B} = {7F701EC0-64A2-4DDD-A72B-EB4C09B99492}
 		{D34FE685-A5FE-4476-ACD9-7EDE94080BD9} = {7F701EC0-64A2-4DDD-A72B-EB4C09B99492}
 		{E620753D-3E3C-4B63-ADB2-3600626CF045} = {86472AC7-7EFF-4E64-9F85-8EBA9345BB8B}

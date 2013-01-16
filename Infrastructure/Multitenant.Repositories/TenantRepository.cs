@@ -5,7 +5,7 @@
 
     public class TenantRepository : ITenantRepository
     {
-        public Tenant FindByHostHeader(string hostHeader)
+        public Tenant GetByHostHeader(string hostHeader)
         {
             throw new System.NotImplementedException();
         }

@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E620753D-3E3C-4B63-ADB2-3600626CF045}</ProjectGuid>
+    <ProjectGuid>{425FB648-38D0-4057-A9DE-E04F535348E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Multitenant.UnitTests</RootNamespace>
-    <AssemblyName>Multitenant.UnitTests</AssemblyName>
+    <RootNamespace>Multitenant.MvcHelpers</RootNamespace>
+    <AssemblyName>Multitenant.MvcHelpers</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,15 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
-      <HintPath>..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,27 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\TestHelper.cs" />
-    <Compile Include="TenantRepositoryTests.cs" />
+    <Compile Include="TenantViewEngine.cs" />
+    <Compile Include="UrlTenentResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TenantResolverTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Multitenant.Core\Multitenant.Core.csproj">
       <Project>{4902AFEF-5BBA-4915-B723-33B2767CA7EE}</Project>
       <Name>Multitenant.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\Multitenant.MvcHelpers\Multitenant.MvcHelpers.csproj">
-      <Project>{425FB648-38D0-4057-A9DE-E04F535348E7}</Project>
-      <Name>Multitenant.MvcHelpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\Multitenant.Repositories\Multitenant.Repositories.csproj">
-      <Project>{60cabb6a-e86f-4ebc-9140-21059b7c2875}</Project>
-      <Name>Multitenant.Repositories</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
