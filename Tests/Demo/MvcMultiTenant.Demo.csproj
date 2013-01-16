@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="StructureMap">
+      <HintPath>..\..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -167,9 +170,17 @@
     <Content Include="Tenants\Achme1\Views\User\DeleteAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Multitenant.Core\Multitenant.Core.csproj">
+      <Project>{4902AFEF-5BBA-4915-B723-33B2767CA7EE}</Project>
+      <Name>Multitenant.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Multitenant.MvcHelpers\Multitenant.MvcHelpers.csproj">
       <Project>{425fb648-38d0-4057-a9de-e04f535348e7}</Project>
       <Name>Multitenant.MvcHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Multitenant.Repositories\Multitenant.Repositories.csproj">
+      <Project>{60CABB6A-E86F-4EBC-9140-21059B7C2875}</Project>
+      <Name>Multitenant.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -27,13 +27,11 @@ namespace MvcMultiTenant.Demo
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-
             ObjectFactory.Configure(x =>
                 {
                     x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current));
                     x.For<ITenantRepository>().Use<TenantRepository>();
                     x.For<ICurrentTenantResolver>().Use<UrlTenentResolver>();
-                    x.For<TenantViewEngine>().Use<TenantViewEngine>();
                 });
 
             ViewEngines.Engines.Add(ObjectFactory.GetInstance<TenantViewEngine>());
