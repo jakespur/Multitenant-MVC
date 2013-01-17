@@ -1,6 +1,6 @@
 ﻿namespace Multitenant.Core.Enums
 {
-    public enum EnvironmentType
+    public enum EnvironmentTypeEnum
     {
         Development,
         QA,

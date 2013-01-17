@@ -4,6 +4,6 @@
 
     public interface ICurrentTenantResolver
     {
-        Tenant Current { get; }
+        ActiveTenant Current { get; }
     }
 }

@@ -30,7 +30,7 @@ namespace MvcMultiTenant.Demo
             ObjectFactory.Configure(x =>
                 {
                     x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current));
-                    x.For<ITenantRepository>().Use<TenantRepository>();
+                    x.For<ITenantRepository>().Use<TenantXmlRepository>();
                     x.For<ICurrentTenantResolver>().Use<UrlTenentResolver>();
                 });
 

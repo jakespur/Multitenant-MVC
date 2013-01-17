@@ -8,10 +8,10 @@ namespace Multitenant.Core.Interfaces.ValueObjects
     {
         string Name { get; set; }
 
-        List<Environment> Environments { get; set; }
+        List<HostEnvironment> Environments { get; set; }
 
         Dictionary<string, string> GlobalSettings { get; set; }
 
-        void Add(Environment environment);
+        void Add(HostEnvironment environment);
     }
 }

@@ -12,7 +12,7 @@
                 };
         }
 
-        public static Tenant WithHost(this Tenant tenant, Environment environment)
+        public static Tenant WithHost(this Tenant tenant, HostEnvironment environment)
         {
             tenant.Add(environment);
             return tenant;

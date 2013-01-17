@@ -12,4 +12,17 @@ namespace Multitenant.Core.Helpers
             if (param == null) throw new ArgumentNullException("Argument cannot be null");
         }
     }
+
+    public static class Assert
+    {
+        public static bool IsNotNull(object entity)
+        {
+            return entity != null;
+        }
+
+        public static bool FileIsValid(string path)
+        {
+            return System.IO.File.Exists(path);
+        }
+    }
 }
