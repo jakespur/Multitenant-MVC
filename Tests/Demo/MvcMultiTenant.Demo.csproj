@@ -182,6 +182,10 @@
       <Project>{60CABB6A-E86F-4EBC-9140-21059B7C2875}</Project>
       <Name>Multitenant.Repositories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Multitenant.Services\Multitenant.Services.csproj">
+      <Project>{ae10fcf4-b6e0-4f6d-8d18-6a041a6bb44e}</Project>
+      <Name>Multitenant.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Tenant.Config">

@@ -10,8 +10,10 @@ namespace MvcMultiTenant.Demo
 {
     using Multitenant.Core.Interfaces.Repositorys;
     using Multitenant.Core.Interfaces.Resolvers;
+    using Multitenant.Core.Interfaces.Services;
     using Multitenant.MvcHelpers;
     using Multitenant.Repositories;
+    using Multitenant.Services;
 
     using StructureMap;
 
@@ -31,6 +33,7 @@ namespace MvcMultiTenant.Demo
                 {
                     x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current));
                     x.For<ITenantRepository>().Use<TenantXmlRepository>();
+                    x.For<ITenantService>().Use<TenantService>();
                     x.For<ICurrentTenantResolver>().Use<UrlTenentResolver>();
                 });
 
