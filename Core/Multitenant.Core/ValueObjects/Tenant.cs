@@ -26,9 +26,14 @@
             Environments.Add(environment);
         }
 
+        public HostEnvironment MatchHost(string hostHeader)
+        {
+            return this.Environments.SingleOrDefault(x => x.HostHeader == hostHeader);
+        }
+
         public static ActiveTenant ReturnActive(string hostHeader, Tenant tenant)
         {
-            var matchedHost = tenant.Environments.SingleOrDefault(x => x.HostHeader == hostHeader);
+            var matchedHost = tenant.MatchHost(hostHeader);
 
             return ActiveTenantBuilder.Create(tenant.Name)
                         .WithEnvironment(matchedHost.Type)

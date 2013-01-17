@@ -7,14 +7,23 @@
 
     public class ActiveTenant
     {
-        public IEnumerable<Setting> Settings { get; private set; }
+        private SettingCollection _settings;
+        public SettingCollection Settings 
+        { 
+            get 
+            {
+                return _settings;
+            }
+        }
+
         public EnvironmentTypeEnum Environment { get; set; }
         public string Name { get; set; }
         public Company Company { get; set; }
 
-        public ActiveTenant(IEnumerable<Setting> result)
+        public void InitializeSettings(List<Setting> result)
         {
-            Settings = result;
+            _settings = new SettingCollection();
+            _settings.AddRange(result);
         }
     }
 }

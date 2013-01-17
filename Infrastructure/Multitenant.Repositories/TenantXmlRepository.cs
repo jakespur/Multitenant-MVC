@@ -38,14 +38,24 @@
         {
             var document = XDocument.Load(_tenantConfigPath);
             _tenants = (from tenantDoc in document.Descendants("tenant")
-                       select new Tenant()
+                           select new Tenant()
                            {
                                Name = tenantDoc.Element("name").Value, 
-                               Environments = (from env in tenantDoc.Descendants("hostheaders")
+                               Company = new Company() 
+                               {
+                                   Name = tenantDoc.Element("information").Element("company").Element("name").Value
+                               },
+                               DefaultSettings = (from sharedSettings in tenantDoc.Descendants("defaultAppSettings").Descendants("add")                                                    
+                                                  select new Setting(sharedSettings.Attribute("key").Value, sharedSettings.Attribute("value").Value)     
+                                                 ).ToList(),
+                               Environments = (from env in tenantDoc.Descendants("host")
                                                    select new HostEnvironment()
                                                        {
-                                                          HostHeader = env.Element("host").Attribute("name").Value,
-                                                          Type = (EnvironmentTypeEnum)Enum.Parse(typeof(EnvironmentTypeEnum), env.Element("host").Attribute("environment").Value)
+                                                          HostHeader = env.Attribute("name").Value,
+                                                          Type = (EnvironmentTypeEnum)Enum.Parse(typeof(EnvironmentTypeEnum), env.Attribute("environment").Value),
+                                                          Settings = (from appSetting in env.Descendants("add")
+                                                                       select 
+                                                                       new Setting(appSetting.Attribute("key").Value, appSetting.Attribute("value").Value)).ToList()
                                                        }).ToList()
                            }).ToList();
         }

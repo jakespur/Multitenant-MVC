@@ -23,9 +23,10 @@ namespace Multitenant.UnitTests
         [SetUp]
         public void SetUp()
         {
-            var repo = new TenantXmlRepository(App.Path + "\\TenantConfig.xml");
+            var repo = new TenantXmlRepository(App.Path + "\\Tenant.Config");
             var service = new TenantService(repo);
             _tenant = service.GetByHostHeader("www.ms121.com");
+            Assert.IsNotNull(_tenant, "Tenant should never be null!");
         }
 
         [Test]
@@ -39,14 +40,14 @@ namespace Multitenant.UnitTests
         public void Test_That_Can_Read_The_Default_App_Settings_On_The_Tenent()
         {
             // Assert
-            Assert.That(_tenant.Settings["Theme"] == "Blue");
+            Assert.That(_tenant.Settings["Theme"].Value == "Blue");
         }
 
         [Test]
         public void Test_That_I_Can_Override_AppSetting_Key_On_A_Specific_Environment()
         {
             // Assert
-            Assert.That(_tenant.Settings["LuceneIndexPath"] == @"C:\Production\LuceneIndex\ContactCentre");
+            Assert.That(_tenant.Settings["LuceneIndexPath"].Value == @"C:\Production\LuceneIndex\ContactCentre");
         }
     }
 }

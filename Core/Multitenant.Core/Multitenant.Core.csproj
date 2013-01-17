@@ -59,6 +59,7 @@
     <Compile Include="ValueObjects\HostEnvironment.cs" />
     <Compile Include="Interfaces\ValueObjects\ITenant.cs" />
     <Compile Include="ValueObjects\Setting.cs" />
+    <Compile Include="ValueObjects\SettingCollection.cs" />
     <Compile Include="ValueObjects\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

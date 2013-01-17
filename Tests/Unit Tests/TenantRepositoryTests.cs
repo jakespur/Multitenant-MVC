@@ -69,5 +69,35 @@
             // Assert
             Assert.IsNotNull(actualTenant);
         }
+
+        [Test]
+        public void Test_That_Association_To_Host_Headers_Comes_Back()
+        {
+            // Arrange
+            var tenantConfigFile = string.Concat(App.Path, "\\", "Tenant.config");
+            const string HostHeader = "achme1.local.com";
+            
+            // Act
+            var repo = new TenantXmlRepository(tenantConfigFile);
+            var actualTenant = repo.GetByHostHeader(HostHeader);
+            
+            // Assert
+            Assert.That(actualTenant.Environments.Count > 1);
+        }
+
+        [Test]
+        public void Test_That_Association_To_DefaultSettings_Comes_Back()
+        {
+            // Arrange
+            var tenantConfigFile = string.Concat(App.Path, "\\", "Tenant.config");
+            const string HostHeader = "achme1.local.com";
+            
+            // Act
+            var repo = new TenantXmlRepository(tenantConfigFile);
+            var actualTenant = repo.GetByHostHeader(HostHeader);
+            
+            // Assert
+            Assert.That(actualTenant.DefaultSettings.Count == 2, string.Format("Actual Count : {0}", actualTenant.DefaultSettings));
+        }
     }
 }
