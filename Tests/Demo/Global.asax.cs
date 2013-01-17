@@ -15,6 +15,8 @@ namespace MvcMultiTenant.Demo
     using Multitenant.Repositories;
     using Multitenant.Services;
 
+    using MvcMultiTenant.Demo.App_Start;
+
     using StructureMap;
 
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
