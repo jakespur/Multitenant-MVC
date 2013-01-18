@@ -21,13 +21,13 @@
 
         public static ActiveTenant WithSettings(this ActiveTenant tenant, IEnumerable<Setting> defaultSettings, IEnumerable<Setting> hostSettings)
         {
-            List<Setting> mergedAppSettings;
+            var mergedAppSettings = new List<Setting>(); 
 
             if ((hostSettings != null) && (hostSettings.Any()))
             {
                 mergedAppSettings = hostSettings.Concat(defaultSettings).GroupBy(x => x.Key).Select(x => x.First()).ToList();
             }
-            else
+            else if (defaultSettings != null && defaultSettings.Any())
             {
                 mergedAppSettings = defaultSettings.ToList();
             }

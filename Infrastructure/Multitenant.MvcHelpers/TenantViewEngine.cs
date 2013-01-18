@@ -5,15 +5,18 @@ namespace Multitenant.MvcHelpers
     using System.Web.Mvc;
 
     using Multitenant.Core.Interfaces.Resolvers;
+    using Multitenant.Core.ValueObjects;
+
+    using StructureMap;
 
     public class TenantViewEngine : RazorViewEngine
     {
-        private readonly ICurrentTenantResolver _tenant;
+        private ActiveTenant _tenant;
 
         public TenantViewEngine(ICurrentTenantResolver tenant)
         {
-            this._tenant = tenant;
-            var tenantBaseView = string.Format("~/Tenants/{0}/", this._tenant.Current.Name);
+            _tenant = tenant.Current;
+            var tenantBaseView = string.Format("~/Tenants/{0}/", this.ActiveTenant.Name);
             var tenantViewPath = tenantBaseView + "Views/{1}/{0}";
             var sharedPath = tenantBaseView + "Shared/Views/{0}" ;
             this.ViewLocationFormats = new string[] { tenantViewPath, sharedPath };
@@ -30,6 +33,14 @@ namespace Multitenant.MvcHelpers
         {
             var physicalPath = controllerContext.HttpContext.Server.MapPath(masterPath);
             return base.CreatePartialView(controllerContext, physicalPath);
+        }
+
+        protected ActiveTenant ActiveTenant
+        {
+            get
+            {
+                return _tenant;
+            }
         }
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Exceptions\TenantNotFoundException.cs" />
     <Compile Include="Exceptions\TenentKeyNotFoundException.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Helpers\App.cs" />
     <Compile Include="Helpers\GuardAgainst.cs" />
     <Compile Include="Interfaces\Repositorys\ITenantRepository.cs" />
     <Compile Include="Interfaces\Resolvers\ICurrentTenantResolver.cs" />

@@ -9,12 +9,10 @@
 
     public class UrlTenentResolver : ICurrentTenantResolver
     {
-        public UrlTenentResolver(HttpContextBase httpContext, ITenantService service)
+        public UrlTenentResolver(string hostName, ITenantService service)
         {
-            GuardAgainst.Null(httpContext);
             GuardAgainst.Null(service);
-
-            var hostName = httpContext.Request.Url.Host;
+            GuardAgainst.Null(hostName);
             var tenant = service.GetByHostHeader(hostName);
             this.Current = tenant;
         }

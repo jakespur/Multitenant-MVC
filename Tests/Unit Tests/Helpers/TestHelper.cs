@@ -37,17 +37,4 @@
             return httpContext.Object;
         }
     }
-
-    public static class App
-    {
-        public static string Path
-        {
-            get
-            {
-                var path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
-                int startPos = "file:\\".Length;
-                return path.Substring(startPos);
-            }
-        }
-    }
 }
