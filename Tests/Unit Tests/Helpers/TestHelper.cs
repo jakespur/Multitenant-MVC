@@ -7,6 +7,7 @@
 
     using Multitenant.Core.Builders;
     using Multitenant.Core.Interfaces.Repositorys;
+    using Multitenant.Core.Interfaces.ValueObjects;
     using Multitenant.Core.ValueObjects;
     
     public enum SecureHttp
@@ -35,6 +36,13 @@
             mockedRequest.Setup(x => x.Url).Returns(host);
             httpContext.Setup(x => x.Request).Returns(mockedRequest.Object);
             return httpContext.Object;
+        }
+
+        public static ICurrentHost MockHost(string hostName)
+        {
+            var currentHost = new Mock<ICurrentHost>();
+            currentHost.Setup(x => x.Name).Returns(hostName);
+            return currentHost.Object;
         }
     }
 }

@@ -5,18 +5,29 @@
     using Multitenant.Core.Helpers;
     using Multitenant.Core.Interfaces.Resolvers;
     using Multitenant.Core.Interfaces.Services;
+    using Multitenant.Core.Interfaces.ValueObjects;
     using Multitenant.Core.ValueObjects;
 
     public class UrlTenentResolver : ICurrentTenantResolver
     {
-        public UrlTenentResolver(string hostName, ITenantService service)
-        {
+        private readonly ICurrentHost _host;
+        private readonly ITenantService _service;
+        private ActiveTenant _activeTenant;
+
+        public UrlTenentResolver(ICurrentHost host, ITenantService service)
+        {            
             GuardAgainst.Null(service);
-            GuardAgainst.Null(hostName);
-            var tenant = service.GetByHostHeader(hostName);
-            this.Current = tenant;
+            GuardAgainst.Null(host);
+            _host = host;
+            _service = service;
         }
 
-        public ActiveTenant Current { get; private set; }
+        public ActiveTenant Current 
+        { 
+            get
+            {
+                return _activeTenant ?? (_activeTenant = _service.GetByHostHeader(_host.Name));
+            } 
+        }
     }
 }

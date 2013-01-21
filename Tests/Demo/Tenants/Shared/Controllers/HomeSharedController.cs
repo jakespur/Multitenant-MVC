@@ -12,6 +12,5 @@ namespace MvcMultiTenant.Demo.Tenants.Shared.Controllers
         {
             return View();
         }
-
     }
 }

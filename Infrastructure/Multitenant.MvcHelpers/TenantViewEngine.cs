@@ -12,15 +12,14 @@ namespace Multitenant.MvcHelpers
     public class TenantViewEngine : RazorViewEngine
     {
         private ActiveTenant _tenant;
+        private const string TenantBaseView = "~/Tenants/{TenantName}/";
+        const string TenantViewPath = TenantBaseView + "Views/{1}/{0}";
+        const string SharedPath = TenantBaseView + "Shared/Views/{0}";
 
-        public TenantViewEngine(ICurrentTenantResolver tenant)
+        public TenantViewEngine()
         {
-            _tenant = tenant.Current;
-            var tenantBaseView = string.Format("~/Tenants/{0}/", this.ActiveTenant.Name);
-            var tenantViewPath = tenantBaseView + "Views/{1}/{0}";
-            var sharedPath = tenantBaseView + "Shared/Views/{0}" ;
-            this.ViewLocationFormats = new string[] { tenantViewPath, sharedPath };
-            this.PartialViewLocationFormats = new string[] { tenantViewPath, sharedPath };
+            this.ViewLocationFormats = new string[] { TenantViewPath, SharedPath };
+            this.PartialViewLocationFormats = new string[] { TenantViewPath, SharedPath };
         }
 
         protected override IView CreatePartialView(ControllerContext controllerContext, string partialPath)
@@ -39,7 +38,7 @@ namespace Multitenant.MvcHelpers
         {
             get
             {
-                return _tenant;
+                return _tenant ?? (_tenant = ObjectFactory.GetInstance<ICurrentTenantResolver>().Current);
             }
         }
     }

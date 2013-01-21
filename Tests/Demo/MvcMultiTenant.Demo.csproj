@@ -119,6 +119,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharedMvcControllers.cs" />
     <Compile Include="Tenants\Achme1\Controllers\UserController.cs" />
     <Compile Include="Tenants\Achme2\Controllers\AccountController.cs" />
     <Compile Include="Tenants\Shared\Controllers\HomeSharedController.cs" />
@@ -133,6 +134,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Registry\" />
     <Folder Include="Tenants\Achme1\Assets\Css\" />
     <Folder Include="Tenants\Achme1\Assets\Images\" />
     <Folder Include="Tenants\Achme1\Assets\Javascript\" />

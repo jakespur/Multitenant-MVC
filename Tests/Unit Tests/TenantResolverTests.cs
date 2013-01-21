@@ -19,7 +19,9 @@ namespace Multitenant.UnitTests
             // Arrange
             const string HostHeader = "www.acmedrug.com"; 
             var tenantRepo = TestHelper.MockTenantRepo(HostHeader);
-            var resolver = new UrlTenentResolver(HostHeader, new TenantService(tenantRepo));
+            var currentHost = TestHelper.MockHost(HostHeader);
+
+            var resolver = new UrlTenentResolver(currentHost, new TenantService(tenantRepo));
             // Act
             var actual = resolver.Current;
             // Assert

@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\Repositorys\ITenantRepository.cs" />
     <Compile Include="Interfaces\Resolvers\ICurrentTenantResolver.cs" />
     <Compile Include="Interfaces\Services\ITenantService.cs" />
+    <Compile Include="Interfaces\ValueObjects\ICurrentHost.cs" />
     <Compile Include="ValueObjects\ActiveTenant.cs" />
     <Compile Include="ValueObjects\Company.cs" />
     <Compile Include="ValueObjects\HostEnvironment.cs" />
