@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="CurrentHost.cs" />
     <Compile Include="Registry\MvcRegistry.cs" />
+    <Compile Include="Registry\SharedControllerConvention.cs" />
     <Compile Include="TenantControllerFactory.cs" />
     <Compile Include="TenantViewEngine.cs" />
     <Compile Include="UrlTenentResolver.cs" />
