@@ -49,6 +49,7 @@
     <Compile Include="Exceptions\TenantConfigFileMissingException.cs" />
     <Compile Include="Exceptions\TenantNotFoundException.cs" />
     <Compile Include="Exceptions\TenentKeyNotFoundException.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\App.cs" />
     <Compile Include="Helpers\GuardAgainst.cs" />

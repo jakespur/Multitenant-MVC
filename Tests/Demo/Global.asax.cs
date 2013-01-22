@@ -5,6 +5,7 @@ using System.Web.Routing;
 namespace MvcMultiTenant.Demo
 {
     using Multitenant.MvcHelpers;
+    using Multitenant.MvcHelpers.Registry;
 
     using MvcMultiTenant.Demo.App_Start;
     using MvcMultiTenant.Demo.Registry;
@@ -26,9 +27,15 @@ namespace MvcMultiTenant.Demo
             ObjectFactory.Configure(x =>
             {
                     x.AddRegistry<MvcRegistry>();
+                    x.Scan(y =>
+                        {
+                            y.TheCallingAssembly();
+                            y.Convention<SharedControllerConvention>();    
+                        });
             });
-
-            ViewEngines.Engines.Add(ObjectFactory.GetInstance<TenantViewEngine>());
+            
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new TenantViewEngine());
             ControllerBuilder.Current.SetControllerFactory(new TenantControllerFactory());
         }
     }

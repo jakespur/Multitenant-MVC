@@ -55,6 +55,7 @@
     <Compile Include="Helpers\TestHelper.cs" />
     <Compile Include="TenantAppSettings.cs" />
     <Compile Include="TenantControllerTests.cs" />
+    <Compile Include="TenantReflectionTests.cs" />
     <Compile Include="TenantRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TenantResolverTests.cs" />
