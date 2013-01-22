@@ -36,6 +36,7 @@
             var matchedHost = tenant.MatchHost(hostHeader);
 
             return ActiveTenantBuilder.Create(tenant.Name)
+                        .WithExternalId(tenant.ExternalId)
                         .WithEnvironment(matchedHost.Type)
                         .WithCompany(tenant.Company)
                         .WithSettings(defaultSettings: tenant.DefaultSettings, hostSettings: matchedHost.Settings);

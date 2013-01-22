@@ -19,6 +19,7 @@
         public EnvironmentTypeEnum Environment { get; set; }
         public string Name { get; set; }
         public Company Company { get; set; }
+        public string ExternalId { get; set; }
 
         public void InitializeSettings(List<Setting> result)
         {

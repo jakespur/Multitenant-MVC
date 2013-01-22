@@ -41,6 +41,7 @@
                            select new Tenant()
                            {
                                Name = tenantDoc.Element("name").Value, 
+                               ExternalId = tenantDoc.Element("information").Element("externalId").Value,
                                Company = new Company() 
                                {
                                    Name = tenantDoc.Element("information").Element("company").Element("name").Value

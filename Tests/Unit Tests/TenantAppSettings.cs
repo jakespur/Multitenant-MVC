@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Multitenant.UnitTests
+﻿namespace Multitenant.UnitTests
 {
-    using System.Configuration;
-
     using Multitenant.Core.Enums;
     using Multitenant.Core.ValueObjects;
     using Multitenant.Repositories;
@@ -34,6 +27,13 @@ namespace Multitenant.UnitTests
         {
             // Assert
             Assert.That(_tenant.Environment == EnvironmentTypeEnum.Production);
+        }
+
+        [Test]
+        public void Test_That_I_Can_Read_The_External_Id()
+        {
+            // Assert
+            Assert.That(_tenant.ExternalId == "1");
         }
 
         [Test]

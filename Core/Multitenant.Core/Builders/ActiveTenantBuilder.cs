@@ -19,6 +19,12 @@
             return tenant;
         }
 
+        public static ActiveTenant WithExternalId(this ActiveTenant tenant, string externalId)
+        {
+            tenant.ExternalId = externalId;
+            return tenant;
+        }
+
         public static ActiveTenant WithSettings(this ActiveTenant tenant, IEnumerable<Setting> defaultSettings, IEnumerable<Setting> hostSettings)
         {
             var mergedAppSettings = new List<Setting>(); 
