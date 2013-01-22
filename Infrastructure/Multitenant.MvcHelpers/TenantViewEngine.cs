@@ -14,41 +14,48 @@ namespace Multitenant.MvcHelpers
     public class TenantViewEngine : RazorViewEngine
     {
         private ActiveTenant _tenant;
-        private const string TenantBaseView = "~/Tenants/{TenantName}/";
-        const string TenantBaseViewPath = TenantBaseView + "Views/{Controller}/{View}";
-        const string TenantBasePartialPath = TenantBaseView + "Shared/{View}";
-        const string SharedViewPath = TenantBaseView + "Shared/Views/{View}";
-        const string SharedViewPartialPath = TenantBaseView + "Shared/Views/Shared/{View}";
-
+        const string RazorPrefix = ".cshtml";
+        const string TenantRoot = "~/Tenants/";
+        const string TenantBaseView = TenantRoot + "{TenantName}/";
+        const string TenantBaseViewPath = TenantBaseView + "Views/{Controller}/{View}" + RazorPrefix;
+        const string TenantBasePartialPath = TenantBaseView + "Views/Shared/{View}" + RazorPrefix;
+        const string SharedViewPath = TenantRoot + "Shared/Views/{View}" + RazorPrefix;
+        const string SharedViewPartialPath = TenantRoot + "Shared/Views/Shared/{View}" + RazorPrefix;
+        
         public override ViewEngineResult FindView(ControllerContext controllerContext, string viewName, string masterName, bool useCache)
         {
-            if (controllerContext.RouteData.Values.ContainsKey("tenant"))
+            var controllerName = controllerContext.RouteData.Values["controller"] as string;
+            var viewPath = string.Empty;
+
+            if (HasTenantView(controllerName, viewName, out viewPath))
             {
-                var controllerName = controllerContext.RouteData.Values["controller"] as string;
-                var viewPath = string.Empty;
+                return base.FindView(controllerContext, viewPath, masterName, useCache);
+            }
 
-                if (HasTenantView(controllerName, viewName, out viewPath))
-                {
-                    return base.FindView(controllerContext, viewPath, masterName, useCache);
-                }
-
-                if (HasTenantPartialView(controllerName, viewName, out viewPath))
-                {
-                    return base.FindView(controllerContext, viewPath, masterName, useCache);
-                }
-
-                if (HasSharedViewPath(controllerName, viewName, out viewPath))
-                {
-                    return base.FindView(controllerContext, viewPath, masterName, useCache);
-                }
-
-                if (HasSharedPartialView(controllerName, viewName, out viewPath))
-                {
-                    return base.FindView(controllerContext, viewPath, masterName, useCache);
-                }
+            if (HasSharedViewPath(controllerName, viewName, out viewPath))
+            {
+                return base.FindView(controllerContext, viewPath, masterName, useCache);
             }
 
             return base.FindView(controllerContext, viewName, masterName, useCache);
+        }
+
+        public override ViewEngineResult FindPartialView(ControllerContext controllerContext, string partialViewName, bool useCache)
+        {
+            var controllerName = controllerContext.RouteData.Values["controller"] as string;
+            var viewPath = string.Empty;
+
+            if (HasTenantPartialView(controllerName, partialViewName, out viewPath))
+            {
+                return base.FindPartialView(controllerContext, viewPath, useCache);
+            }
+
+            if (HasSharedPartialView(controllerName, partialViewName, out viewPath))
+            {
+                return base.FindPartialView(controllerContext, viewPath, useCache);
+            }
+
+            return base.FindPartialView(controllerContext, partialViewName, useCache);
         }
 
         private bool HasSharedPartialView(string controller, string viewName, out string viewPath)
@@ -65,6 +72,8 @@ namespace Multitenant.MvcHelpers
 
         protected bool HasTenantPartialView(string controller, string viewName, out string viewPath)
         {
+            var match = this.HasTenantView(controller, viewName, out viewPath);
+            if (match) return true;
             viewPath = TenantBasePartialPath.Replace("{TenantName}", TenantName).Replace("{Controller}", controller).Replace("{View}", viewName);
             return this.HasView(viewPath);
         }

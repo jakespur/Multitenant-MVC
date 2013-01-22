@@ -1,6 +1,7 @@
-﻿@using System.Web.Mvc.Html
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
 
-@using (Html.BeginForm("Authenticate", "Login"))
+@using (Html.BeginForm("Authenticate", "Login", FormMethod.Post))
 {
     <label>Email Address :</label>@Html.TextBox("EmailAddress")<br />
     <label>Password : @Html.Password("Password")</label>  

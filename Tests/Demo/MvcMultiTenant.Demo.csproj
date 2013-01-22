@@ -119,8 +119,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tenants\Achme1\Controllers\UserController.cs" />
-    <Compile Include="Tenants\Achme2\Controllers\AccountController.cs" />
+    <Compile Include="Tenants\Acme1\Controllers\UserController.cs" />
+    <Compile Include="Tenants\Acme2\Controllers\AccountController.cs" />
     <Compile Include="Tenants\Shared\Controllers\HomeSharedController.cs" />
     <Compile Include="Tenants\Shared\Controllers\LoginSharedController.cs" />
     <Compile Include="Tenants\Shared\Controllers\UserSharedController.cs" />
@@ -133,14 +133,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tenants\Achme1\Assets\Css\" />
-    <Folder Include="Tenants\Achme1\Assets\Images\" />
-    <Folder Include="Tenants\Achme1\Assets\Javascript\" />
-    <Folder Include="Tenants\Achme1\Models\" />
-    <Folder Include="Tenants\Achme2\Assets\Css\" />
-    <Folder Include="Tenants\Achme2\Assets\Images\" />
-    <Folder Include="Tenants\Achme2\Assets\Javascript\" />
-    <Folder Include="Tenants\Achme2\Models\" />
+    <Folder Include="Tenants\Acme1\Assets\Css\" />
+    <Folder Include="Tenants\Acme1\Assets\Images\" />
+    <Folder Include="Tenants\Acme1\Assets\Javascript\" />
+    <Folder Include="Tenants\Acme1\Models\" />
+    <Folder Include="Tenants\Acme2\Assets\Css\" />
+    <Folder Include="Tenants\Acme2\Assets\Images\" />
+    <Folder Include="Tenants\Acme2\Assets\Javascript\" />
+    <Folder Include="Tenants\Acme2\Models\" />
     <Folder Include="Tenants\Shared\Assets\Css\" />
     <Folder Include="Tenants\Shared\Assets\Images\" />
     <Folder Include="Tenants\Shared\Assets\Javascript\" />
@@ -150,28 +150,28 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tenants\Achme1\Views\Web.config" />
+    <Content Include="Tenants\Acme1\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tenants\Achme2\Views\Web.config" />
+    <Content Include="Tenants\Acme2\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tenants\Achme2\Views\Shared\_Layout.cshtml" />
+    <Content Include="Tenants\Acme2\Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tenants\Achme1\Views\Shared\_Layout.cshtml" />
+    <Content Include="Tenants\Acme1\Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Tenants\Shared\Views\Shared\_Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tenants\Achme2\Views\User\Landing.cshtml" />
+    <Content Include="Tenants\Acme2\Views\User\Landing.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tenants\Achme1\Views\User\Landing.cshtml" />
+    <Content Include="Tenants\Acme1\Views\User\Landing.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tenants\Achme1\Views\User\DeleteAccount.cshtml" />
+    <Content Include="Tenants\Acme1\Views\User\DeleteAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Multitenant.Core\Multitenant.Core.csproj">
@@ -197,10 +197,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tenants\Achme1\Views\Home\Index.cshtml" />
+    <Content Include="Tenants\Acme1\Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tenants\Achme2\Views\Home\Index.cshtml" />
+    <Content Include="Tenants\Acme2\Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tenants\Shared\Views\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
